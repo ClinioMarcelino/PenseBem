@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pense Bem - Ciencias</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0
+    }
+
+    #conteudo {
+        padding: 5%;
+        background-color: lightgray;
+        width: fit-content;
+        height: fit-content;
+    }
+
+    #visor1 {
+        background-color: black;
+        color: red;
+        width: 20vw;
+        height: 30px;
+        font-size: 27px;
+    }
+
+    #tst {
+        display: flex;
+    }
+
+    .botoes {
+        display: flex;
+        height: 20vh;
+        flex-flow: wrap;
+        flex-grow: inherit;
+        width: 100%;
+    }
+
+    .bot {
+        width: 50%;
+    }
+
+    #reiniciar {
+        padding: 3px;
+        margin-top: 5px;
+    }
+
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #e5d6ac;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    width: 700px;
+    height: 500px;
+    background-color: #f5f5dc;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Screen area */
+.screen-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.screen {
+    width: 80%;
+    height: 70px;
+    background-color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 2.5em;
+    border-radius: 10px;
+}
+
+.screen-text {
+    color: #ffcc00;
+    font-family: 'Courier New', monospace;
+}
+
+/* LED indicators below the screen */
+.indicators {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+.led {
+    width: 20px;
+    height: 10px;
+    border-radius: 3px;
+}
+
+.led-red {
+    background-color: red;
+}
+
+.led-yellow {
+    background-color: yellow;
+}
+
+.led-blue {
+    background-color: blue;
+}
+
+.led-green {
+    background-color: green;
+}
+
+/* Keyboard area */
+.keyboard {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+
+.button {
+    width: 80px;
+    height: 60px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.red {
+    background-color: red;
+}
+
+.yellow {
+    background-color: yellow;
+    color: black;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.green {
+    background-color: green;
+}
+
+.white {
+    background-color: white;
+    color: black;
+}
+
+.brand h2 {
+    margin-top: 20px;
+    font-size: 1.5em;
+    color: #333;
+    text-align: center;
+}
+
+
+</style>
+
+<body>
+    <div id="conteudo">
+        <h1 id="titulo">Pense Bem</h1>
+
+        <form>
+            <p><input type="text" id="visor1" value="*" readonly></p>
+            <div id="tst">
+                <div class="botoes">
+                    <input class="bot" type="button" id="botaoA" value="A" onclick="jogar(this.value);">
+                    <input class="bot" type="button" id="botaoB" value="B" onclick="jogar(this.value);">
+                    <input class="bot" type="button" id="botaoC" value="C" onclick="jogar(this.value);">
+                    <input class="bot" type="button" id="botaoD" value="D" onclick="jogar(this.value);">
+                </div>
+            </div>
+
+            <p><input type="button" id="reiniciar" value="Reiniciar Jogo" onclick="iniciar();"></p>
+        </form>
+    </div>
+
+    <div class="container">
+        <!-- Top screen -->
+        <div class="screen-area">
+            <div class="screen">
+                <p class="screen-text">8-8-8-8-8-8</p>
+            </div>
+            <div class="indicators">
+                <div class="led led-red"></div>
+                <div class="led led-yellow"></div>
+                <div class="led led-blue"></div>
+                <div class="led led-green"></div>
+            </div>
+        </div>
+
+        <!-- Keyboard area -->
+        <div class="keyboard">
+            <!-- First row (A B C D) -->
+            <div class="row">
+                <button class="button red">A</button>
+                <button class="button yellow">B</button>
+                <button class="button blue">C</button>
+                <button class="button green">D</button>
+            </div>
+
+            <!-- Second row (Enter, Livro, Desl., Liga) -->
+            <div class="row">
+                <button class="button white">ENTER</button>
+                <button class="button white">LIVRO</button>
+                <button class="button red">DESL.</button>
+                <button class="button green">LIGA</button>
+            </div>
+
+            <!-- Third row (Operations + - / etc) -->
+            <div class="row">
+                <button class="button blue">+</button>
+                <button class="button blue">-</button>
+                <button class="button blue">*</button>
+                <button class="button blue">÷</button>
+            </div>
+
+            <!-- Fourth row (Number and note buttons) -->
+            <div class="row">
+                <button class="button red">PAUSA</button>
+                <button class="button yellow">DO</button>
+                <button class="button yellow">RÉ</button>
+                <button class="button yellow">MI</button>
+                <button class="button yellow">FA</button>
+                <button class="button yellow">SOL</button>
+                <button class="button yellow">LÁ</button>
+                <button class="button yellow">SI</button>
+                <button class="button yellow">DÓ</button>
+            </div>
+
+            <!-- Bottom text and branding -->
+            <div class="brand">
+                <h2>Pense Bem®</h2>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
