@@ -1,1 +1,5 @@
 # PenseBem
+
+# Devs:
+    @ClinioMarcelino
+    @Thais
