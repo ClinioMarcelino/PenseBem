@@ -1,0 +1,160 @@
+.position {
+    position: fixed;
+    top: 40%;
+    left: 0;
+    transform: translateY(-50%);
+}
+
+.container {
+    width: 40vh;
+    height: 30vh;
+    background-color: #f5f5dc;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10vh;
+}
+
+.pdf-container {
+    margin-left: 50%;
+}
+
+canvas {
+    width: auto;
+    height: 90vh;
+}
+
+body {
+    background-color: #e5d6ac;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+}
+
+
+
+/* Screen area */
+.screen-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.screen {
+    width: 80%;
+    height: 7rem;
+    background-color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 2.5em;
+    border-radius: 10px;
+    margin-top: 6%;
+}
+
+.screen-text {
+    color: #ffcc00;
+    font-family: 'Courier New', monospace;
+}
+
+/* LED indicators below the screen */
+.indicators {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+.led {
+    width: 2rem;
+    height: 1rem;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-right: 0.5rem;
+}
+
+.led-red {
+    background-color: red;
+}
+
+.led-yellow {
+    background-color: yellow;
+}
+
+.led-blue {
+    background-color: blue;
+}
+
+.led-green {
+    background-color: green;
+}
+
+/* Keyboard area */
+.keyboard {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+
+.button {
+    width: 7.35rem;
+    height: 6rem;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.red {
+    background-color: red;
+}
+
+.yellow {
+    background-color: yellow;
+    color: black;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.green {
+    background-color: green;
+}
+
+.white {
+    background-color: white;
+    color: black;
+}
+
+.brand h2 {
+    margin-top: 0%;
+    font-size: 1.5em;
+    color: #a7a7a7;
+    text-align: end;
+    width: 40rem;
+}
+
+.timer {
+    margin-top: 20px;
+    font-size: 1.5em;
+    color: #333;
+    text-align: center;
+}
