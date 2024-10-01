@@ -63,6 +63,9 @@ body {
 .screen-text {
     color: #ffcc00;
     font-family: 'Courier New', monospace;
+    font-size: 24px;
+    margin-top: 20px;
+
 }
 
 /* LED indicators below the screen */

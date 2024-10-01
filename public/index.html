@@ -13,7 +13,7 @@
             <!-- Top screen -->
             <div class="screen-area">
                 <div class="screen">
-                    <p class="screen-text"></p>
+                    <p class="screen-text">oi</p>
                 </div>
                 <div class="indicators">
                     <div class="led led-red"></div>
@@ -27,18 +27,18 @@
             <div class="keyboard">
                 <!-- First row (A B C D) -->
                 <div class="row">
-                    <button class="button red">A</button>
-                    <button class="button yellow">B</button>
-                    <button class="button blue">C</button>
-                    <button class="button green">D</button>
+                    <button class="button red" data-="A">A</button>
+                    <button class="button yellow" data-="B">B</button>
+                    <button class="button blue" data-="C">C</button>
+                    <button class="button green" data-="D">D</button>
                 </div>
 
                 <!-- Second row (Enter, Livro, Desl., Liga) -->
                 <div class="row">
-                    <button class="button white">ENTER</button>
-                    <button class="button white">LIVRO</button>
-                    <button class="button red">DESL.</button>
-                    <button class="button green">LIGA</button>
+                    <button class="button white" data-="ENTER">ENTER</button>
+                    <button class="button white" data-="LIVRO">LIVRO</button>
+                    <button class="button red" data-="DESL">DESL.</button>
+                    <button class="button green" data-="LIGA">LIGA</button>
                 </div>
 
                 <div class="brand">
@@ -51,6 +51,7 @@
     <div class="pdf-container">
         <canvas id="pdf-canvas"></canvas>
     </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
     <script src="sricpt.js"></script>
 </body>
