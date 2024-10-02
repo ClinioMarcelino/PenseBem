@@ -1,11 +1,15 @@
 let currentPage = 1;
 let pdfDoc = null;
-let gabarito = "A";
+let n_game = 0;
+let game_page_start = [5,11,17,23,29,3];
+let end_game_questions = [30,60,90,120,150];
+let gabarito = ["A","B","C","D"];
 let pergunta = 0;
 
 const canvas = document.getElementById('pdf-canvas');
 const ctx = canvas.getContext('2d');
 const answerButtons = document.querySelectorAll('.button');
+const gameChoose = document.querySelectorAll('.game')
 
 // Carregar o PDF do servidor
 pdfjsLib.getDocument('/formula1.pdf').promise.then(function (pdf) {
@@ -34,10 +38,37 @@ function renderPage(num) {
 
 // Adiciona a funcionalidade de clicar no quadrado vermelho para avançar as páginas
 function troca_pagina() {
-    // document.getElementsByClassName()
-    if (currentPage < pdfDoc.numPages) {
-        currentPage++;
-        renderPage(currentPage);
+    switch (pergunta){
+        case 7:
+        case 14:
+        case 20:
+        case 26:
+        case 30:
+        case 36:
+        case 42:
+        case 50:
+        case 55:
+        case 60:
+        case 66:
+        case 78:
+        case 80:
+        case 86:
+        case 90:
+        case 97:
+        case 103:
+        case 110:
+        case 116:
+        case 120:
+        case 127:
+        case 133:
+        case 140:
+        case 146:
+        case 150:
+            currentPage++;
+            renderPage(currentPage);
+        break;
+        default:
+        break;
     }
 };
 
@@ -47,19 +78,27 @@ answerButtons.forEach(button => {
       const Element = document.querySelector('.screen-text'); // Elemento onde exibiremos o resultado
     
       // Verificar se a resposta está correta
-        if (userAnswer === gabarito) {
+        if (userAnswer === gabarito[pergunta]) {
             // const Element = document.querySelector('.screen-text');
             Element.textContent = 'Certo';
             Element.style.color = 'green';
-
-            // TODO!
-            if(true){
-                troca_pagina();
-            }
+            pergunta++;
+            troca_pagina();
+            
         }
         else{
             Element.textContent = 'Errado';
             Element.style.color = 'red'; 
+        }
+    })
+});
+
+gameChoose.forEach(span => {
+    span.addEventListener('click', function() {
+        if (currentPage === 1){
+        n_game = parseInt(this.getAttribute('data-')); // Obter a resposta selecionada
+        currentPage = game_page_start[n_game];
+        renderPage(currentPage);
         }
     })
 });
