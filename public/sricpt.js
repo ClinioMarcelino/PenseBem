@@ -129,32 +129,36 @@ function anwser_question(awnsr){
         Element.style.color = "green";
         score+=n_try;
         n_try=3;
-        limpa_tela(500);
+        limpa_tela(800);
         // escreve_pergunta();
     }else if(n_try!=1){
         Element.textContent = `Errado tentativa ${3-n_try+1}/3`;
         Element.style.color = "red";
         n_try--;
-        limpa_tela(500);
+        limpa_tela(800);
         // escreve_pergunta();
     }else{
         Element.textContent = `Errado tentativa 3/3`;
         Element.style.color = "red";
         pergunta++;
         troca_pagina();
-        escreve_pergunta();
+        limpa_tela(800);
         n_try=3;
     }
 }
 
 
-  function limpa_tela(tempo){
+  async function limpa_tela(tempo){
     const Element = document.querySelector('.screen-text');
-    function sleep() {
-        return new Promise(resolve => setTimeout(resolve, 1000));
+      
+      function sleep() {
+        return new Promise((resolve) => {
+          setTimeout(resolve, tempo);
+        });
       }
-    sleep().then(escreve_pergunta());
-    
+
+    await sleep()
+    escreve_pergunta()
   }
 
   function escreve_pergunta(){
