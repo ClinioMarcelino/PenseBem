@@ -18,7 +18,8 @@ let n_try = 3;
 
 const canvas = document.getElementById('pdf-canvas');
 const ctx = canvas.getContext('2d');
-const answerButtons = document.querySelectorAll('.button');
+const answerButtons = document.querySelectorAll('.button-awnser');
+const utilButtons = document.querySelectorAll('.button-functions')
 const gameChoose = document.querySelectorAll('.game')
 
 // Carregar o PDF do servidor
@@ -86,10 +87,31 @@ function troca_pagina() {
 
 answerButtons.forEach(button => {
     button.addEventListener('click', function() {
-        const userAnswer = this.getAttribute('data-'); // Obter a resposta selecionada
-        anwser_question(userAnswer);
+        if (currentPage == 1){}
+        else{
+            const userAnswer = this.getAttribute('data-'); 
+            anwser_question(userAnswer);
+            if (pergunta % 30 == 0 && pergunta > 0){
+                alert(`Pontuacao Final = ${(score/(30*3)).toFixed(2)}%`)
+                score = 0;
+                pergunta = 0;
+                const Elements = document.querySelector('.screen-text');
+                Elements.textContent = "Obrigado por jogar";
+                Elements.style.color = "white";
+
+            }
+        }
     })
 });
+
+utilButtons.forEach(button => {
+    button.addEventListener('click', function() {
+        const userAnswer = this.getAttribute('data-');
+        if (userAnswer==="DESL"){
+            reset();
+        }
+    })
+})
 
 gameChoose.forEach(span => {
     span.addEventListener('click', function() {
@@ -167,3 +189,4 @@ function anwser_question(awnsr){
     Element.textContent = `Pergunta ${pergunta+1}`;
     Element.style.color = 'yellow';
   }
+
