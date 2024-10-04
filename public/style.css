@@ -36,8 +36,6 @@ body {
     font-family: Arial, sans-serif;
 }
 
-
-
 /* Screen area */
 .screen-area {
     display: flex;
@@ -128,6 +126,10 @@ body {
     display: flex;
     justify-content: space-between;
     margin: 10px 0;
+}
+
+#cursor-def1, #cursor-def2, #cursor-def3, #cursor-def4 {
+    cursor:default;
 }
 
 .button {
